@@ -238,12 +238,14 @@ Konkretną funkcję na serwerze wywołuje się następującym adresem URL: http:
 ## Set function [/changeUserPassword]        
 ### changeUserPassword [GET]
 + Parameters
-    + password (required, string) ... Encrypted password.
+    + passwordOld (required, string) ... Encrypted old password.
+    + passwordNew (required, string) ... Encrypted new password.
 
 + Request (application/json)
 
         {
-            "password": "encryptedpassword123",
+            "passwordOld": "encryptedpassword123",
+            "passwordNew": "encryptedpassword123",
         }
 
 + Response 200 (application/json)
