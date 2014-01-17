@@ -1,0 +1,219 @@
+FORMAT: 1A
+HOST: http://helloworld.pl
+
+--- Przedszkolowo API ---
+---
+
+# Parametry przesyłane w HEADER
+## - key
+unikalny klucz dostępu do API, przesyłany przy wywoływaniu wszystkich funkcji
+## - sessid
+identyfikator sesji otrzymany po zalogowaniu
+
+# Parametry przesyłane w POST
+## - request
+obiekt z parametrami w JSON, przykład:
+
+
+POST /login.jsp HTTP/1.1
+
+Host: www.mysite.com
+
+User-Agent: Mozilla/4.0
+
+Content-Length: 29
+
+Content-Type: application/x-www-form-urlencoded
+
+request={ "email": "adres@mail.pl", "password": "encryptedpassword123" }
+
+# Informacje podstawowe
+
+Wszystkie funkcje za wyłączeniem __loginUser__ oraz __registerUser__ muszą być wywoływane z parametrem __sessid__ (przesyłany w headerze).
+
+Wszystkie informacje zwrotne z serwera zawierają 4 główne pola:
+
+- __status__ - ["OK" / "ERRROR"] "OK" w przypadku gdy polecenie zostało poprawnie wykonane, w przeciwnym wypadku "ERROR"
+- __message__ - zawiera wiadomość wyświetlaną użytkownikowi aplikacji w przypadku gdy pole __status__ ma wartość "ERROR"
+- __developMessage__ - zawiera szczegóły na temat błędu w przypadku gdy pole __status__ ma wartość "ERROR"
+- __data__ - złożony obiekt JSON zawierający zwrócone przez serwer informacje
+
+----
+
+# Group Getters
+
+## Get function [/loginUser]
+### loginUser [POST]
++ Parameters
+    + email (required, string) ... E-mail address.
+    + password (required, string) ... Encrypted password.
+    
++ Request (application/json)
+
+        {
+            "email": "adres@mail.pl",
+            "password": "encryptedpassword123"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "status": "OK",
+            "message": "",
+            "developMessage": "",
+            "data":
+            {
+                "sessid": "crdlso0gr8gsavc4leo3va3ai5"
+            }
+        }
+
+## Get function [/getUserData]        
+### getUserData [POST]
+
++ Response 200 (application/json)
+
+        {
+            "status": "OK",
+            "message": "",
+            "developMessage": "",
+            "data": 
+            {
+                "name": "Jan"
+                "surname": "Kowalski"
+                "email": "jankowalski@gmail.com"
+            }
+        }
+        
+## Get function [/getMenu]        
+### getMenu [POST]
+
++ Response 200 (application/json)
+
+        {
+            "status": "OK",
+            "message": "",
+            "developMessage": "",
+            "data": 
+            {
+                "0": 
+                {
+                    "dayName": "poniedziałek"
+                    "date": "02.12"
+                    "breakfast": "zupa mleczna (płatki śniadaniowe), pieczywo jasne i ciemne, twarożek z rzodkiewką, herbatka z cytryną"
+                    "dinner": "zupa neapolitańska, zraziki drobiowe, ziemniaki, warzywa na parze, kompot"
+                    "tea": "budyń, bułeczki z masełkiem, herbatka"
+                }
+            }
+        }
+        
+## Get function [/getNotices]        
+### getNotices [POST]
+
++ Response 200 (application/json)
+
+        {
+            "status": "OK",
+            "message": "",
+            "developMessage": "",
+            "data": 
+            {
+                "0": 
+                {
+                    "dayName": "poniedziałek"
+                    "date": "02.12"
+                    "breakfast": "zupa mleczna (płatki śniadaniowe), pieczywo jasne i ciemne, twarożek z rzodkiewką, herbatka z cytryną"
+                    "dinner": "zupa neapolitańska, zraziki drobiowe, ziemniaki, warzywa na parze, kompot"
+                    "tea": "budyń, bułeczki z masełkiem, herbatka"
+                }
+            }
+        }
+        
+## Get function [/getPayments]        
+### getPayments [POST]
+
++ Response 200 (application/json)
+
+        {
+            "status": "OK",
+            "message": "",
+            "developMessage": "",
+            "data": 
+            {
+                "0": 
+                {
+                    "dayName": "poniedziałek"
+                    "date": "02.12"
+                    "breakfast": "zupa mleczna (płatki śniadaniowe), pieczywo jasne i ciemne, twarożek z rzodkiewką, herbatka z cytryną"
+                    "dinner": "zupa neapolitańska, zraziki drobiowe, ziemniaki, warzywa na parze, kompot"
+                    "tea": "budyń, bułeczki z masełkiem, herbatka"
+                }
+            }
+        }
+        
+## Get function [/getClasses]        
+### getClasses [POST]
+
++ Response 200 (application/json)
+
+        {
+            "status": "OK",
+            "message": "",
+            "developMessage": "",
+            "data": 
+            {
+                "0": 
+                {
+                    "dayName": "poniedziałek"
+                    "date": "02.12"
+                    "breakfast": "zupa mleczna (płatki śniadaniowe), pieczywo jasne i ciemne, twarożek z rzodkiewką, herbatka z cytryną"
+                    "dinner": "zupa neapolitańska, zraziki drobiowe, ziemniaki, warzywa na parze, kompot"
+                    "tea": "budyń, bułeczki z masełkiem, herbatka"
+                }
+            }
+        }
+
+# Group Setters
+## Set function [/passwordReminder]        
+### passwordReminder [GET]
++ Parameters
+    + email (required, string) ... E-mail address.
+
++ Request (application/json)
+
+        {
+            "email": "adres@mail.pl",
+        }
+
++ Response 200 (application/json)
+
+        {
+            "status": "OK",
+            "message": "",
+            "developMessage": "",
+            "data": {}
+        }
+        
+## Set function [/registerUser]        
+### registerUser [GET]
++ Parameters
+    + name (required, string) ... Name.
+    + surname (required, string) ... Surname.
+    + email (required, string) ... E-mail address.
+    + password (required, string) ... Encrypted password.
+
++ Request (application/json)
+
+        {
+            "name": "Jan",
+            "surname": "Kowalski"
+            "email": "jankowalski@gmail.com",
+            "password": "encryptedpassword123"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "status": "OK",
+            "message": "",
+            "data": {}
+        }
