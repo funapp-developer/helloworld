@@ -213,3 +213,43 @@ Konkretną funkcję na serwerze wywołuje się następującym adresem URL: http:
             "message": "",
             "data": {}
         }
+        
+## Set function [/changeUserData]        
+### changeUserData [GET]
++ Parameters
+    + name (required, string) ... Name.
+    + surname (required, string) ... Surname.
+
++ Request (application/json)
+
+        {
+            "name": "Jan",
+            "surname": "Kowalski"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "status": "OK",
+            "message": "",
+            "data": {}
+        }
+        
+## Set function [/changeUserPassword]        
+### changeUserPassword [GET]
++ Parameters
+    + password (required, string) ... Encrypted password.
+
++ Request (application/json)
+
+        {
+            "password": "encryptedpassword123",
+        }
+
++ Response 200 (application/json)
+
+        {
+            "status": "OK",
+            "message": "",
+            "data": {}
+        }
