@@ -38,6 +38,8 @@ Wszystkie informacje zwrotne z serwera zawierają 4 główne pola:
 - __developMessage__ - zawiera szczegóły na temat błędu w przypadku gdy pole __status__ ma wartość "ERROR"
 - __data__ - złożony obiekt JSON zawierający zwrócone przez serwer informacje
 
+Konkretną funkcję na serwerze wywołuje się następującym adresem URL: http://adresstrony.pl/funappapi/function/loginUser
+
 ----
 
 # Group Getters
@@ -196,18 +198,12 @@ Wszystkie informacje zwrotne z serwera zawierają 4 główne pola:
 ## Set function [/registerUser]        
 ### registerUser [GET]
 + Parameters
-    + name (required, string) ... Name.
-    + surname (required, string) ... Surname.
     + email (required, string) ... E-mail address.
-    + password (required, string) ... Encrypted password.
 
 + Request (application/json)
 
         {
-            "name": "Jan",
-            "surname": "Kowalski"
             "email": "jankowalski@gmail.com",
-            "password": "encryptedpassword123"
         }
 
 + Response 200 (application/json)
