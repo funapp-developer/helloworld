@@ -88,6 +88,14 @@ Konkretną funkcję na serwerze wywołuje się następującym adresem URL: http:
         
 ## Get function [/getMenu]        
 ### getMenu [POST]
++ Parameters
+    + limit (required, string) ... Items limit.
+
++ Request (application/json)
+
+        {
+            "limit": "2",
+        }
 
 + Response 200 (application/json)
 
@@ -99,17 +107,31 @@ Konkretną funkcję na serwerze wywołuje się następującym adresem URL: http:
             {
                 "0": 
                 {
-                    "dayName": "poniedziałek"
-                    "date": "02.12"
-                    "breakfast": "zupa mleczna (płatki śniadaniowe), pieczywo jasne i ciemne, twarożek z rzodkiewką, herbatka z cytryną"
-                    "dinner": "zupa neapolitańska, zraziki drobiowe, ziemniaki, warzywa na parze, kompot"
-                    "tea": "budyń, bułeczki z masełkiem, herbatka"
+                    "dayName": "poniedziałek",
+                    "date": "02.12",
+                    "title": "tytul",
+                    "content": "zupa mleczna (płatki śniadaniowe), pieczywo jasne i ciemne, twarożek z rzodkiewką, herbatka z cytryną"
+                }
+                "1": 
+                {
+                    "dayName": "wtorek",
+                    "date": "02.12",
+                    "title": "tytul",
+                    "content": "zupa mleczna (płatki śniadaniowe), pieczywo jasne i ciemne, twarożek z rzodkiewką, herbatka z cytryną"
                 }
             }
         }
         
 ## Get function [/getNotices]        
 ### getNotices [POST]
++ Parameters
+    + limit (required, string) ... Items limit.
+
++ Request (application/json)
+
+        {
+            "limit": "2",
+        }
 
 + Response 200 (application/json)
 
@@ -121,17 +143,31 @@ Konkretną funkcję na serwerze wywołuje się następującym adresem URL: http:
             {
                 "0": 
                 {
-                    "dayName": "poniedziałek"
-                    "date": "02.12"
-                    "breakfast": "zupa mleczna (płatki śniadaniowe), pieczywo jasne i ciemne, twarożek z rzodkiewką, herbatka z cytryną"
-                    "dinner": "zupa neapolitańska, zraziki drobiowe, ziemniaki, warzywa na parze, kompot"
-                    "tea": "budyń, bułeczki z masełkiem, herbatka"
+                    "dayName": "poniedziałek",
+                    "date": "02.12",
+                    "title": "Święto Pluszowego Misia",
+                    "content": "W poniedziałek 25 listopada 2013 roku obchodziliśmy Święto Pluszowego Misia."
+                }
+                "1": 
+                {
+                    "dayName": "wtorek",
+                    "date": "02.12",
+                    "title": "Jasełka w bajkowej krainie",
+                    "content": "W poniedziałek 25 listopada 2013 roku obchodziliśmy Jasełka w bajkowej krainie."
                 }
             }
         }
         
 ## Get function [/getPayments]        
 ### getPayments [POST]
++ Parameters
+    + limit (required, string) ... Items limit.
+
++ Request (application/json)
+
+        {
+            "limit": "2",
+        }
 
 + Response 200 (application/json)
 
@@ -143,17 +179,31 @@ Konkretną funkcję na serwerze wywołuje się następującym adresem URL: http:
             {
                 "0": 
                 {
-                    "dayName": "poniedziałek"
-                    "date": "02.12"
-                    "breakfast": "zupa mleczna (płatki śniadaniowe), pieczywo jasne i ciemne, twarożek z rzodkiewką, herbatka z cytryną"
-                    "dinner": "zupa neapolitańska, zraziki drobiowe, ziemniaki, warzywa na parze, kompot"
-                    "tea": "budyń, bułeczki z masełkiem, herbatka"
+                    "dayName": "poniedziałek",
+                    "date": "02.12",
+                    "title": "Tytuł płatności 1",
+                    "content": "Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym."
+                }
+                "1": 
+                {
+                    "dayName": "wtorek",
+                    "date": "02.12",
+                    "title": "Tytuł płatności 2",
+                    "content": "Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym."
                 }
             }
         }
         
-## Get function [/getClasses]        
-### getClasses [POST]
+## Get function [/getTimetables]        
+### getTimetables [POST]
++ Parameters
+    + limit (required, string) ... Items limit.
+
++ Request (application/json)
+
+        {
+            "limit": "2",
+        }
 
 + Response 200 (application/json)
 
@@ -165,11 +215,17 @@ Konkretną funkcję na serwerze wywołuje się następującym adresem URL: http:
             {
                 "0": 
                 {
-                    "dayName": "poniedziałek"
-                    "date": "02.12"
-                    "breakfast": "zupa mleczna (płatki śniadaniowe), pieczywo jasne i ciemne, twarożek z rzodkiewką, herbatka z cytryną"
-                    "dinner": "zupa neapolitańska, zraziki drobiowe, ziemniaki, warzywa na parze, kompot"
-                    "tea": "budyń, bułeczki z masełkiem, herbatka"
+                    "dayName": "poniedziałek",
+                    "date": "02.12",
+                    "title": "Tytuł zajęcia 1",
+                    "content": "Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym."
+                }
+                "1": 
+                {
+                    "dayName": "wtorek",
+                    "date": "02.12",
+                    "title": "Tytuł zajęcia 2",
+                    "content": "Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym."
                 }
             }
         }
