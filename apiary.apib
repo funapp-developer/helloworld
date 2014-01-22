@@ -33,7 +33,7 @@ Wszystkie funkcje za wyłączeniem __loginUser__ oraz __registerUser__ muszą by
 
 Wszystkie informacje zwrotne z serwera zawierają 4 główne pola:
 
-- __status__ - ["OK" / "ERRROR"] "OK" w przypadku gdy polecenie zostało poprawnie wykonane, w przeciwnym wypadku "ERROR"
+- __status__ - ["OK" / "ERRROR" / "SESSION_END"] "OK" w przypadku gdy polecenie zostało poprawnie wykonane, "SESSION_END" gdy sesja wygasła, w przeciwnym wypadku "ERROR"
 - __message__ - zawiera wiadomość wyświetlaną użytkownikowi aplikacji w przypadku gdy pole __status__ ma wartość "ERROR"
 - __developMessage__ - zawiera szczegóły na temat błędu w przypadku gdy pole __status__ ma wartość "ERROR"
 - __data__ - złożony obiekt JSON zawierający zwrócone przez serwer informacje
@@ -44,7 +44,7 @@ Konkretną funkcję na serwerze wywołuje się następującym adresem URL: http:
 
 Klucz __sessid__ przydzielany jest podczas logowania. Klucz ten wygasa po 24 h.
 
-W przypadku gdy klucz wygaśnie, każda funkcja będzie zwracać status __ERROR__ oraz co istotne w polu __developMessage__ ciąg znaków: __session_end__ .
+W przypadku gdy klucz wygaśnie, każda funkcja (za wyjątkiem loginUser, registerUser oraz passwordReminder) będzie zwracać status __SESSION_END__ .
 
 ----
 
@@ -67,8 +67,6 @@ W przypadku gdy klucz wygaśnie, każda funkcja będzie zwracać status __ERROR_
 
         {
             "status": "OK",
-            "message": "",
-            "developMessage": "",
             "data":
             {
                 "sessid": "crdlso0gr8gsavc4leo3va3ai5"
@@ -82,8 +80,6 @@ W przypadku gdy klucz wygaśnie, każda funkcja będzie zwracać status __ERROR_
 
         {
             "status": "OK",
-            "message": "",
-            "developMessage": "",
             "data": 
             {
                 "name": "Jan"
@@ -107,8 +103,6 @@ W przypadku gdy klucz wygaśnie, każda funkcja będzie zwracać status __ERROR_
 
         {
             "status": "OK",
-            "message": "",
-            "developMessage": "",
             "data": 
             {
                 "0": 
@@ -143,8 +137,6 @@ W przypadku gdy klucz wygaśnie, każda funkcja będzie zwracać status __ERROR_
 
         {
             "status": "OK",
-            "message": "",
-            "developMessage": "",
             "data": 
             {
                 "0": 
@@ -179,8 +171,6 @@ W przypadku gdy klucz wygaśnie, każda funkcja będzie zwracać status __ERROR_
 
         {
             "status": "OK",
-            "message": "",
-            "developMessage": "",
             "data": 
             {
                 "0": 
@@ -215,8 +205,6 @@ W przypadku gdy klucz wygaśnie, każda funkcja będzie zwracać status __ERROR_
 
         {
             "status": "OK",
-            "message": "",
-            "developMessage": "",
             "data": 
             {
                 "0": 
@@ -252,8 +240,6 @@ W przypadku gdy klucz wygaśnie, każda funkcja będzie zwracać status __ERROR_
 
         {
             "status": "OK",
-            "message": "",
-            "developMessage": "",
             "data": {}
         }
         
@@ -272,7 +258,6 @@ W przypadku gdy klucz wygaśnie, każda funkcja będzie zwracać status __ERROR_
 
         {
             "status": "OK",
-            "message": "",
             "data": {}
         }
         
@@ -293,7 +278,6 @@ W przypadku gdy klucz wygaśnie, każda funkcja będzie zwracać status __ERROR_
 
         {
             "status": "OK",
-            "message": "",
             "data": {}
         }
         
@@ -314,6 +298,5 @@ W przypadku gdy klucz wygaśnie, każda funkcja będzie zwracać status __ERROR_
 
         {
             "status": "OK",
-            "message": "",
             "data": {}
         }
