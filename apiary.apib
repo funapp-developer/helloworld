@@ -40,6 +40,12 @@ Wszystkie informacje zwrotne z serwera zawierają 4 główne pola:
 
 Konkretną funkcję na serwerze wywołuje się następującym adresem URL: http://adresstrony.pl/funappapi/function/loginUser
 
+# Działanie sesji
+
+Klucz __sessid__ przydzielany jest podczas logowania. Klucz ten wygasa po 24 h.
+
+W przypadku gdy klucz wygaśnie, każda funkcja będzie zwracać status __ERROR__ oraz co istotne w polu __developMessage__ ciąg znaków: __session_end__ .
+
 ----
 
 # Group Getters
