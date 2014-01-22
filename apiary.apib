@@ -46,6 +46,22 @@ Klucz __sessid__ przydzielany jest podczas logowania. Klucz ten wygasa po 24 h.
 
 W przypadku gdy klucz wygaśnie, każda funkcja (za wyjątkiem loginUser, registerUser oraz passwordReminder) będzie zwracać status __SESSION_END__ .
 
+# Przykład błędu
+
+    {
+        "status": "ERROR",
+        "message": "Błąd serwera.",
+        "developMessage": "Nie podano wszystkich parametrów."
+    }
+    
+# Przykład błędu sesji
+
+    {
+        "status": "SESSION_END",
+        "message": "Sesja wygasła.",
+        "developMessage": ""
+    }
+
 ----
 
 # Group Getters
