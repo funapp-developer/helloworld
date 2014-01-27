@@ -46,6 +46,13 @@ Klucz __sessid__ przydzielany jest podczas logowania. Klucz ten wygasa po 24 h.
 
 W przypadku gdy klucz wygaśnie, każda funkcja (za wyjątkiem loginUser, registerUser oraz passwordReminder) będzie zwracać status __SESSION_END__ .
 
+# Android PUSH
+
+Serwer przesyła PUSHem dwa parametry dla Androida:
+
+- __message__ - wiadomość do wyświetlenia w notification bar
+- __changed__ - który typ wiadomości się zmienił, możliwe opcje: "MENU", "NOTICES", "PAYMENTS", "TIMETABLES"
+
 # Przykład błędu
 
     {
@@ -124,14 +131,14 @@ W przypadku gdy klucz wygaśnie, każda funkcja (za wyjątkiem loginUser, regist
                 "0": 
                 {
                     "dayName": "poniedziałek",
-                    "date": "02.12",
+                    "date": "1390829668",
                     "title": "tytul",
                     "content": "zupa mleczna (płatki śniadaniowe), pieczywo jasne i ciemne, twarożek z rzodkiewką, herbatka z cytryną"
                 }
                 "1": 
                 {
                     "dayName": "wtorek",
-                    "date": "02.12",
+                    "date": "1390829668",
                     "title": "tytul",
                     "content": "zupa mleczna (płatki śniadaniowe), pieczywo jasne i ciemne, twarożek z rzodkiewką, herbatka z cytryną"
                 }
@@ -158,14 +165,14 @@ W przypadku gdy klucz wygaśnie, każda funkcja (za wyjątkiem loginUser, regist
                 "0": 
                 {
                     "dayName": "poniedziałek",
-                    "date": "02.12",
+                    "date": "1390829668",
                     "title": "Święto Pluszowego Misia",
                     "content": "W poniedziałek 25 listopada 2013 roku obchodziliśmy Święto Pluszowego Misia."
                 }
                 "1": 
                 {
                     "dayName": "wtorek",
-                    "date": "02.12",
+                    "date": "1390829668",
                     "title": "Jasełka w bajkowej krainie",
                     "content": "W poniedziałek 25 listopada 2013 roku obchodziliśmy Jasełka w bajkowej krainie."
                 }
@@ -192,14 +199,14 @@ W przypadku gdy klucz wygaśnie, każda funkcja (za wyjątkiem loginUser, regist
                 "0": 
                 {
                     "dayName": "poniedziałek",
-                    "date": "02.12",
+                    "date": "1390829668",
                     "title": "Tytuł płatności 1",
                     "content": "Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym."
                 }
                 "1": 
                 {
                     "dayName": "wtorek",
-                    "date": "02.12",
+                    "date": "1390829668",
                     "title": "Tytuł płatności 2",
                     "content": "Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym."
                 }
@@ -226,14 +233,14 @@ W przypadku gdy klucz wygaśnie, każda funkcja (za wyjątkiem loginUser, regist
                 "0": 
                 {
                     "dayName": "poniedziałek",
-                    "date": "02.12",
+                    "date": "1390829668",
                     "title": "Tytuł zajęcia 1",
                     "content": "Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym."
                 }
                 "1": 
                 {
                     "dayName": "wtorek",
-                    "date": "02.12",
+                    "date": "1390829668",
                     "title": "Tytuł zajęcia 2",
                     "content": "Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym."
                 }
@@ -283,6 +290,7 @@ W przypadku gdy klucz wygaśnie, każda funkcja (za wyjątkiem loginUser, regist
 + Parameters
     + pushToken (required, string) ... Device push token.
     + os (required, string) ... Smartphone OS (example: IOS, ANDROID, WP).
+    + isEnabled (required, string) ... Add or remove push token from database (example: true, false)
 
 + Request (application/json)
 
