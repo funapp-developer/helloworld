@@ -282,13 +282,13 @@ W przypadku gdy klucz wygaśnie, każda funkcja (za wyjątkiem loginUser, regist
 ### setOrUpdatePushToken [POST]
 + Parameters
     + pushToken (required, string) ... Device push token.
-    + os (required, string) ... Smartphone OS.
+    + os (required, string) ... Smartphone OS (example: IOS, ANDROID, WP).
 
 + Request (application/json)
 
         {
             "pushToken": "0f744707bebcf74f9b7c25d48e3358945f6aa01da5ddb387462c7eaf61bbad78",
-            "os": "ios"
+            "os": "IOS"
         }
 
 + Response 200 (application/json)
